@@ -9,10 +9,13 @@ chrome.contextMenus.create(contextMenuItem);
 
 chrome.contextMenus.onClicked.addListener(function(info, tab){
         function containsCyrillic(word) {
-                
+
                 const cyrillicRegex = /[\u0400-\u04FF]/;
+
                 return cyrillicRegex.test(word);
                 }
+
+
                 if (containsCyrillic(info.selectionText)) {
                         var newURL = "https://ru.wikipedia.org/wiki/" + info.selectionText;
 
